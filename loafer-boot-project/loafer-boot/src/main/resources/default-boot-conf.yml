@@ -1,0 +1,7 @@
+spring:
+  banner:
+    location: classpath:loafer-banner.txt
+server:
+  error:
+    whitelabel:
+      enabled: false

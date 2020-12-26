@@ -1,0 +1,9 @@
+plugins {
+    id "java-library"
+    id "org.jetbrains.kotlin.jvm"
+}
+description = "Loafer Boot"
+
+dependencies {
+    compileOnly group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.7.RELEASE'
+}

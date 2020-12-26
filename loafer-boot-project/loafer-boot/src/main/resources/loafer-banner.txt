@@ -1,0 +1,8 @@
+${AnsiColor.BRIGHT_BLUE} :::         ::::::::      :::     :::::::::: :::::::::: :::::::::
+${AnsiColor.BRIGHT_BLUE} :+:        :+:    :+:   :+: :+:   :+:        :+:        :+:    :+:
+${AnsiColor.BRIGHT_BLUE} +:+        +:+    +:+  +:+   +:+  +:+        +:+        +:+    +:+
+${AnsiColor.BRIGHT_BLUE} +#+        +#+    +:+ +#++:++#++: :#::+::#   +#++:++#   +#++:++#:
+${AnsiColor.BRIGHT_BLUE} +#+        +#+    +#+ +#+     +#+ +#+        +#+        +#+    +#+
+${AnsiColor.BRIGHT_BLUE} #+#        #+#    #+# #+#     #+# #+#        #+#        #+#    #+#
+${AnsiColor.BRIGHT_BLUE} ##########  ########  ###     ### ###        ########## ###    ###
+${AnsiColor.BRIGHT_BLACK}:: Spring Boot ${spring-boot.formatted-version} :: ${AnsiColor.RED}:: ${spring.profiles.active} ::${AnsiColor.DEFAULT}
