@@ -7,4 +7,4 @@
  * @author kanghouchao
  * @since 2.0.0
  */
-package com.loafer.boot.env;
+package com.loaferframework.boot.env;

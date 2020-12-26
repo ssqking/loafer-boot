@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.loafer.boot.env;
+package com.loaferframework.boot.env;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
