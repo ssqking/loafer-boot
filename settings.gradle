@@ -1,35 +1,13 @@
 pluginManagement {
     repositories {
         mavenCentral()
-        gradlePluginPortal()
-        maven {
-            url 'https://repo.spring.io/plugins-release'
-        }
-        if (version.endsWith('BUILD-SNAPSHOT')) {
-            maven { url "https://repo.spring.io/snapshot" }
-        }
-    }
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.id == "org.jetbrains.kotlin.jvm") {
-                useVersion "${kotlinVersion}"
-            }
-            if (requested.id.id == "org.jetbrains.kotlin.plugin.spring") {
-                useVersion "${kotlinVersion}"
-            }
-        }
     }
 }
 
-plugins {
-    id "com.gradle.enterprise" version "3.5"
-}
-rootProject.name = 'loafer-boot-build'
+rootProject.name = 'loafer-boot-dependencies'
 
-include "loafer-boot-project:loafer-boot"
-include "loafer-boot-project:loafer-boot-dependencies"
-include "loafer-boot-project:loafer-boot-parent"
+include "loafer-boot"
 
-file("${rootDir}/loafer-boot-project/loafer-boot-starters").eachDirMatch(~/loafer-.*-boot-starter/) {
-    include "loafer-boot-project:loafer-boot-starters:${it.name}"
+file("${rootDir}/loafer-boot-starters").eachDirMatch(~/loafer-.*-boot-starter/) {
+    include "loafer-boot-starters:${it.name}"
 }

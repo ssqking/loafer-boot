@@ -1,21 +1,49 @@
 plugins {
-    id "org.jetbrains.kotlin.jvm" apply false // https://youtrack.jetbrains.com/issue/KT-30276
+    id "java-library"
 }
 
 description = "Loafer Boot Build"
 
 defaultTasks 'build'
 
+ext {
+    springBootVersion = '2.3.7.RELEASE'
+    springCloudVersion = 'Hoxton.SR9'
+    comCloudAlibabaVersion = '2.2.3.RELEASE'
+    dreamluMicaVersion = '2.1.0-GA'
+    micaAutoVersion = "2.0.1"
+    hutoolVersion = '5.5.4'
+    mybatisPlusVersion = '3.4.1'
+    xxljobVersion = '2.2.0'
+}
+
 allprojects {
-    group "com.loafer.framework.boot"
+
+    compileJava.options.encoding("UTF-8")
+    compileTestJava.options.encoding("UTF-8")
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
 
     repositories {
         mavenCentral()
-        if (!version.endsWith('RELEASE')) {
-            maven { url "https://repo.spring.io/milestone" }
-        }
-        if (version.endsWith('BUILD-SNAPSHOT')) {
-            maven { url "https://repo.spring.io/snapshot" }
-        }
+    }
+
+    apply plugin: "java-library"
+
+    dependencies {
+        implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+        implementation platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+        implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:$comCloudAlibabaVersion")
+        implementation platform("net.dreamlu:mica-bom:$dreamluMicaVersion")
+        compileOnly "org.slf4j:slf4j-api"
+        compileOnly "org.projectlombok:lombok"
+        compileOnly "net.dreamlu:mica-auto:$micaAutoVersion"
     }
 }
+
