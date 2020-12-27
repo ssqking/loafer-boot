@@ -1,5 +1,5 @@
 description = "Loafer Mybatis Plus Starter"
 
 dependencies {
-
+    implementation "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion"
 }
