@@ -6,21 +6,6 @@ description = "Loafer Boot Build"
 
 defaultTasks 'build'
 
-allprojects {
-    compileJava.options.encoding("UTF-8")
-    compileTestJava.options.encoding("UTF-8")
-    java {
-        withJavadocJar()
-        withSourcesJar()
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(8)
-        }
-    }
-    repositories {
-        mavenCentral()
-    }
-}
-
 ext {
     springBootVersion = '2.3.7.RELEASE'
     springCloudVersion = 'Hoxton.SR9'
@@ -31,5 +16,28 @@ ext {
     xxljobVersion = '2.2.0'
 }
 
-dependencies {
+allprojects {
+
+    compileJava.options.encoding("UTF-8")
+    compileTestJava.options.encoding("UTF-8")
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: "java-library"
+
+    dependencies {
+        implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+        implementation platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+    }
 }
+

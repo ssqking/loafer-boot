@@ -1,5 +1,1 @@
-plugins {
-    id "java-library"
-}
-
 description = "Loafer Boot Dependencies"
