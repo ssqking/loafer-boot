@@ -11,6 +11,7 @@ ext {
     springCloudVersion = 'Hoxton.SR9'
     comCloudAlibabaVersion = '2.2.3.RELEASE'
     dreamluMicaVersion = '2.1.0-GA'
+    micaAutoVersion = "2.0.1"
     hutoolVersion = '5.5.4'
     mybatisPlusVersion = '3.4.1'
     xxljobVersion = '2.2.0'
@@ -38,6 +39,11 @@ allprojects {
     dependencies {
         implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
         implementation platform("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+        implementation platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:$comCloudAlibabaVersion")
+        implementation platform("net.dreamlu:mica-bom:$dreamluMicaVersion")
+        compileOnly "org.slf4j:slf4j-api"
+        compileOnly "org.projectlombok:lombok"
+        compileOnly "net.dreamlu:mica-auto:$micaAutoVersion"
     }
 }
 

@@ -1,5 +1,0 @@
-description = "Loafer Boot Parent"
-
-dependencies {
-    implementation(enforcedPlatform(":loafer-boot-project:loafer-boot-dependencies"))
-}

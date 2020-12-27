@@ -16,6 +16,7 @@
 
 package com.loaferframework.boot.env;
 
+import net.dreamlu.mica.auto.annotation.AutoEnvPostProcessor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.boot.env.EnvironmentPostProcessor;
@@ -26,7 +27,6 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.List;
@@ -40,6 +40,7 @@ import java.util.List;
  * @author kanghouchao
  * @since 2.0.0
  */
+@AutoEnvPostProcessor
 public class DefaultBootEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
 
     /**
