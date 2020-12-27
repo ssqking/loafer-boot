@@ -1,5 +1,5 @@
 plugins {
-    id "org.jetbrains.kotlin.jvm" apply false // https://youtrack.jetbrains.com/issue/KT-30276
+    id "java-library"
 }
 
 description = "Loafer Boot Build"
@@ -7,15 +7,29 @@ description = "Loafer Boot Build"
 defaultTasks 'build'
 
 allprojects {
-    group "com.loafer.framework.boot"
-
-    repositories {
-        mavenCentral()
-        if (!version.endsWith('RELEASE')) {
-            maven { url "https://repo.spring.io/milestone" }
-        }
-        if (version.endsWith('BUILD-SNAPSHOT')) {
-            maven { url "https://repo.spring.io/snapshot" }
+    compileJava.options.encoding("UTF-8")
+    compileTestJava.options.encoding("UTF-8")
+    java {
+        withJavadocJar()
+        withSourcesJar()
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
         }
     }
+    repositories {
+        mavenCentral()
+    }
+}
+
+ext {
+    springBootVersion = '2.3.7.RELEASE'
+    springCloudVersion = 'Hoxton.SR9'
+    comCloudAlibabaVersion = '2.2.3.RELEASE'
+    dreamluMicaVersion = '2.1.0-GA'
+    hutoolVersion = '5.5.4'
+    mybatisPlusVersion = '3.4.1'
+    xxljobVersion = '2.2.0'
+}
+
+dependencies {
 }

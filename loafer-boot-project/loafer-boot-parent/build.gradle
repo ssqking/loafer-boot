@@ -1,1 +1,9 @@
+plugins {
+    id "java-library"
+}
+
 description = "Loafer Boot Parent"
+
+dependencies {
+    implementation(project(":loafer-boot-project:loafer-boot-dependencies"))
+}
