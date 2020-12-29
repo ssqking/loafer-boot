@@ -1,7 +1,7 @@
-= Loafer Boot
+= Loafer Boot 的构建目标
 :github: https://github.com/loaferdevelop/loafer-boot
 
-一套适用于基于springboot搭建微服务项目的脚手架
+搭建一套适用于基于springboot搭建微服务项目的脚手架
 
 == 说明
 项目正在起步中...
