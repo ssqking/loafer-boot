@@ -1,0 +1,7 @@
+description "Loafer Spring Cloud Feign Boot Starter"
+
+dependencies {
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-hystrix"
+    implementation "io.github.openfeign:feign-okhttp"
+}
