@@ -5,8 +5,6 @@ plugins {
 
 description = "Loafer Boot Build"
 
-defaultTasks 'build'
-
 ext {
     springBootVersion = '2.3.7.RELEASE'
     springCloudVersion = 'Hoxton.SR9'
@@ -37,6 +35,7 @@ allprojects {
     }
 
     apply plugin: "java-library"
+    apply plugin: "maven-publish"
 
     dependencies {
         implementation platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
@@ -48,5 +47,36 @@ allprojects {
         compileOnly "net.dreamlu:mica-auto:$micaAutoVersion"
     }
 
+    publishing {
+        repositories {
+            maven {
+                def releasesRepoUrl = "$buildDir/repository/releases"
+                def snapshotsRepoUrl = "$buildDir/repository/snapshots"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            }
+        }
+        publications {
+            mavenJava(MavenPublication) {
+                pom {
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'kang'
+                            name = '康厚超'
+                            email = 'hchkang8710@gmail.com'
+                        }
+                    }
+                    scm {
+                        url = 'https://github.com/loaferframework/loafer-boot/'
+                    }
+                }
+            }
+        }
+    }
 }
 

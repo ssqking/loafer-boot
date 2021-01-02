@@ -11,3 +11,4 @@ include "loafer-boot"
 file("${rootDir}/loafer-boot-starters").eachDirMatch(~/loafer-.*-boot-starter/) {
     include "loafer-boot-starters:${it.name}"
 }
+
